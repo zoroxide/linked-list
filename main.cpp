@@ -45,5 +45,8 @@ int main() {
     cout << "After Reversing the entire List: ";
     myList.display();
 
+    const int number_of_nodes = myList.count();
+    cout<<"the list has " << number_of_nodes << " nodes\n";
+
     return 0;
 }
