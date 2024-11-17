@@ -41,5 +41,9 @@ int main() {
     cout << "After deleting the last node: ";
     myList.display();
 
+    myList.reverse();
+    cout << "After Reversing the entire List: ";
+    myList.display();
+
     return 0;
 }

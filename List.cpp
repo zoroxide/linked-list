@@ -232,3 +232,31 @@ void List::sort() {
         }
     }
 }
+
+void List::reverse() {
+    if (!(isEmpty() || head->next == nullptr)) {
+        const Node *left = head;
+        const Node *right = head;
+
+        // Move the right pointer to the last node
+        while (right->next != nullptr) {
+            right = right->next;
+        }
+
+        // Swap the values until the left pointer meets the right pointer or crosses it
+        while (left != right && left->next != right) {
+            swapNodes(left->data, right->data);
+
+            // Move the left pointer forward and the right pointer backward
+            left = left->next;
+
+            // To move the right pointer backward, we need a helper pointer
+            Node *prev = head;
+            while (prev->next != right) {
+                prev = prev->next;
+            }
+            right = prev;
+        }
+    }
+}
+

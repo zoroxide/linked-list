@@ -34,6 +34,7 @@ public:
     void insertAfter(int target, int d) const;
     void replace(int target, int d) const;
     void swapNodes(int d1, int d2);
+    void reverse();
     void sort();
 };
 
