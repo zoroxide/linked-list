@@ -22,17 +22,17 @@ public:
     List();
     ~List();
 
-    bool isEmpty();
+    bool isEmpty() const;
     void insertAtBegin(int d);
     void insertAtEnd(int d);
-    void display();
+    void display() const;
     void deleteAtEnd();
     void deleteAtBegin();
-    [[nodiscard]] int count();
-    bool search(int d);
+    int count() const;
+    bool search(int d) const;
     void insertBefore(int target, int d);
-    void insertAfter(int target, int d);
-    void replace(int target, int d);
+    void insertAfter(int target, int d) const;
+    void replace(int target, int d) const;
     void swapNodes(int d1, int d2);
     void reverse();
     void sort();
