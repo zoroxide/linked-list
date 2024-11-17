@@ -25,7 +25,7 @@ List::~List() {
     }
 }
 
-bool List::isEmpty() {
+bool List::isEmpty() const {
     return head == nullptr;
 }
 
@@ -48,7 +48,7 @@ void List::insertAtEnd(const int d) {
     temp->next = newNode;
 }
 
-void List::display() {
+void List::display() const {
     if (isEmpty()) {
         cout << "The list is empty." << endl;
         return;
@@ -87,7 +87,7 @@ void List::deleteAtBegin() {
     delete temp;
 }
 
-int List::count() {
+int List::count() const {
     int count = 0;
     Node *temp = head;
     while (temp != nullptr) {
@@ -97,7 +97,7 @@ int List::count() {
     return count;
 }
 
-bool List::search(const int d) {
+bool List::search(const int d) const {
     Node *temp = head;
     while (temp != nullptr) {
         if (temp->data == d) {
@@ -129,7 +129,7 @@ void List::insertBefore(const int target, const int d) {
     temp->next = newNode;
 }
 
-void List::insertAfter(const int target, const int d) {
+void List::insertAfter(const int target, const int d) const {
     if (isEmpty()) {
         return;
     }
@@ -151,7 +151,7 @@ void List::insertAfter(const int target, const int d) {
      * this is my implementation of replaceValue function that me and beshoy implemented in the lecture (Lecture 7)
      *
  */
-void List::replace(const int target, const int d) {
+void List::replace(const int target, const int d) const {
     if (isEmpty()) {
         return;
     }
