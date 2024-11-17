@@ -25,7 +25,7 @@ List::~List() {
     }
 }
 
-bool List::isEmpty() const {
+bool List::isEmpty() {
     return head == nullptr;
 }
 
@@ -48,7 +48,7 @@ void List::insertAtEnd(const int d) {
     temp->next = newNode;
 }
 
-void List::display() const {
+void List::display() {
     if (isEmpty()) {
         cout << "The list is empty." << endl;
         return;
@@ -87,7 +87,7 @@ void List::deleteAtBegin() {
     delete temp;
 }
 
-int List::count() const {
+int List::count() {
     int count = 0;
     Node *temp = head;
     while (temp != nullptr) {
@@ -97,7 +97,7 @@ int List::count() const {
     return count;
 }
 
-bool List::search(const int d) const {
+bool List::search(const int d) {
     Node *temp = head;
     while (temp != nullptr) {
         if (temp->data == d) {
@@ -129,7 +129,7 @@ void List::insertBefore(const int target, const int d) {
     temp->next = newNode;
 }
 
-void List::insertAfter(const int target, const int d) const {
+void List::insertAfter(const int target, const int d) {
     if (isEmpty()) {
         return;
     }
@@ -151,7 +151,7 @@ void List::insertAfter(const int target, const int d) const {
      * this is my implementation of replaceValue function that me and beshoy implemented in the lecture (Lecture 7)
      *
  */
-void List::replace(const int target, const int d) const {
+void List::replace(const int target, const int d) {
     if (isEmpty()) {
         return;
     }
@@ -222,16 +222,25 @@ void List::swapNodes(const int d1, const int d2) {
 
 void List::sort() {
     if (isEmpty() || head->next == nullptr) {
-        return;
+        return; // No need to sort if the list is empty or has only one node
     }
-    for (Node *i = head; i->next != nullptr; i = i->next) {
-        for (Node *j = i->next; j != nullptr; j = j->next) {
-            if (i->data > j->data) {
-                swapNodes(i->data, j->data);
+
+    Node *left = head;
+
+    while (left != nullptr) {
+        Node *right = left->next;
+
+        while (right != nullptr) {
+            if (left->data > right->data) {
+                swapNodes(left->data, right->data);
             }
+            right = right->next;
         }
+        left = left->next;
     }
 }
+
+
 
 void List::reverse() {
     if (!(isEmpty() || head->next == nullptr)) {
